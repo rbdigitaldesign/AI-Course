@@ -1,0 +1,149 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>8.1 How can we leverage AI</title>
+<meta name="identifier" content="ga99973c8f74c7a3ecda4848e7d83088a"/>
+<meta name="editing_roles" content="teachers"/>
+<meta name="workflow_state" content="active"/>
+</head>
+<body>
+<div id="dp-wrapper" class="dp-wrapper cc">
+<div class="dp-content-block">
+<div style="background: #f8f6ff; border-left: 4px solid #836bff; border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin-bottom: 1.5rem;">
+<div>By the end of this page, you should be able to…<br><br></div>
+<ul>
+<li>Frame a real-world problem in terms an AI system can work with</li>
+<li>Evaluate whether a dataset is ready for use across five key dimensions</li>
+<li>Identify where Large Language Models are and aren't appropriate for a given task</li>
+</ul>
+</div>
+</div>
+<div class="dp-content-block">
+<h3>AIML: From Conception to Practice</h3>
+<p>It is all too common for the words "we could use AI" to come out of someone's mouth while everyone else nods along. At the same time, there are numerous cases where an AI solution would be perfect, but people shy away because they lack the knowledge and expertise. You don't need to be a programmer to understand how AI and Machine Learning (AIML) work and what you need to have in place.</p>
+<h4 style="display: flex; align-items: center; gap: 0.65rem; margin-top: 1.25rem; margin-bottom: 0.5rem;"><span style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; min-width: 28px; border-radius: 50%; background: #140F50; color: #fff; font-size: 0.78rem;">1</span> The Problem</h4>
+<p>AI &amp; ML systems are run on computers and computers still think in ones and zeros. When considering applying AI to a problem, you should first ask two questions:</p>
+<ul>
+<li>What is the problem I am trying to solve?</li>
+<li>Can I express that problem in a way which makes sense for AI?</li>
+</ul>
+<p>Surprisingly, the first problem can actually be the hardest to answer. Often people will start with a less helpful question. How can I use AI to improve my business? This is too vague. Better kinds of questions are:</p>
+<ul>
+<li>How can I use AI to predict customer behaviour?</li>
+<li>How can I use AI to automatically process forms or receipts?</li>
+<li>How can I use AI to detect crocodiles?</li>
+</ul>
+<p>Defining the problem you are trying to solve is the first step to considering AI. Let's dig further. Once we have worked out vaguely what we are trying to do, we need to translate this into an AI-relevant format. What do we mean when we say 'customer behaviour'? What does 'process forms' mean? What does 'detecting a crocodile' actually mean?</p>
+<p>What we want to do, is formulate our problem into something like the structure below (Figure 1). We have some data, we process it using the AI and it gives us some information about the data.</p>
+<p style="text-align: center;"><img style="display: block; margin-left: auto; margin-right: auto;" src="$IMS-CC-FILEBASE$/Uploaded%20Media/image-b5f79d26-5017-4591-8d4b-6b478c2eeca2.png" alt="image.png" width="582" height="100" data-api-endpoint="https://learn.adelaide.edu.au/api/v1/courses/35284/files/3966994" data-api-returntype="File" loading="lazy"><strong>Figure 1:</strong> The AIML pipeline</p>
+<p style="text-align: left;">For customer behaviour, perhaps this is their demographics (age, gender, location,...) and the <em>information </em>we want is "who is most likely to buy this product if we advertise it to them". For processing forms and receipts, the <em>data </em>is pictures of the forms and receipts. The <em>information </em>is the numbers written on the forms. For crocodiles, the data is video footage taken from a drone and the information is coordinates of crocodile locations.</p>
+<div style="background: #f0edff; border-radius: 8px; padding: 0.85rem 1.1rem; margin: 1rem 0 1.25rem;">
+<div style="font-size: 0.73rem; color: #5244a8; margin-bottom: 0.4rem;">💭 Try it</div>
+<p style="margin: 0; font-size: 0.88rem; color: #3d3a52; line-height: 1.6;">Can you describe a problem from your own field using the Data → AI → Information structure? What would the inputs be, and what information do you want out the other side?</p>
+</div>
+<h4 style="display: flex; align-items: center; gap: 0.65rem; margin-top: 1.25rem; margin-bottom: 0.5rem;"><span style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; min-width: 28px; border-radius: 50%; background: #140F50; color: #fff; font-size: 0.78rem;">2</span> The Data</h4>
+<p>So let's assume we can formulate a sensible question. The next questions we need to ask is all about the data. Do we have it? Can we get it? Should we use it?</p>
+<p style="font-size: 0.85rem; color: #5c5875; font-style: italic; margin-bottom: 0.75rem;">The six tabs below each represent a distinct data consideration — in practice, you would work through all of them before committing to a project.</p>
+<div class="dp-panels-wrapper dp-tabs-pills-vertical">
+<div class="dp-panel-group">
+<h3 class="dp-panel-heading ">Data Availability</h3>
+<div class="dp-panel-content ">
+<h4>Data Availability</h4>
+<p>For example, we might have lots of footage of crocodiles. Unfortunately, that might not be enough. Do we know which video frames contain crocodiles and which don't? Do we know where in each image the crocodile is? Is there more than one (Figure 2)?</p>
+<p style="text-align: center;"><img src="$IMS-CC-FILEBASE$/Uploaded%20Media/Crocodiles.png" alt="image.png" width="491" height="368" data-api-endpoint="https://learn.adelaide.edu.au/api/v1/courses/35284/files/3967214" data-api-returntype="File" loading="lazy"><br><strong>Figure 2:</strong> Crocodile farm (<a class="inline_disabled" href="https://commons.wikimedia.org/wiki/File:Crocodile_farm_in_Momabasa_3.jpg" target="_blank">Wikimedia Commons</a>)</p>
+<p style="text-align: left;">It is always important to have the 'right data' for the problem. Being able to recognise when the available data is the 'wrong data' will save everyone a lot of time.</p>
+</div>
+</div>
+<div class="dp-panel-group">
+<h3 class="dp-panel-heading ">Data Privacy</h3>
+<div class="dp-panel-content ">
+<h4>Data Privacy</h4>
+<p>Let's assume we have data and it is well <strong><em><span style="border-bottom: 1px dotted #836bff; cursor: help;" title="Each data item is tagged with the correct answer — for example, 'this image contains a crocodile'">labelled</span></em></strong>. For many organisations, this seems to be enough. However, for many others, we need to first consider the ethics and legal requirements. For example, what happens when you train an AI on large quantities of <a class="inline_disabled" href="https://cybernews.com/security/ethical-hackers-break-gemini-security/" target="_blank">internal company information</a>? What if you feed <a class="inline_disabled" href="https://www.abc.net.au/news/2025-10-06/data-breach-northern-rivers-resilient-homes-program-chatgpt/105855284" target="_blank">personal information into an AI</a>? What if you train your AI on publicly available, but copyrighted material?</p>
+<p>There are methods to take datasets and <strong><span style="border-bottom: 1px dotted #836bff; cursor: help;" title="Removing or obscuring personal details so individuals cannot be identified from the data">de-identify</span></strong> them. This means to curate the data in such a way that no one can link data back to an individual. This could be by taking aggregate data (it is hard to detect an individual within a group), removing key personal information or several other methods.</p>
+</div>
+</div>
+<div class="dp-panel-group">
+<h3 class="dp-panel-heading ">Data Quality</h3>
+<div class="dp-panel-content">
+<h4>Data Quality</h4>
+<p>Just because you have data, it doesn't mean the data is all accurate and correct. A model training on data which contains errors or missing values will struggle to learn anything. Many datasets have errors. Fortunately, there are ways to automatically detect and replace missing values. These methods rely on patterns in the 'good data', so are again imperfect (which is good enough sometimes).</p>
+<p>This process is called&nbsp;<strong><span style="border-bottom: 1px dotted #836bff; cursor: help;" title="Automatically estimating and filling in missing data values using patterns in the existing data">imputation</span></strong>. It is of course, better to have a complete and correct dataset.</p>
+</div>
+</div>
+<div class="dp-panel-group">
+<h3 class="dp-panel-heading ">Data Bias</h3>
+<div class="dp-panel-content">
+<h4>Data Bias</h4>
+<p>Even when you have well labelled data, it doesn't necessarily mean the data will represent what you want it to represent. For example, modern LLMs have been shown to inherit the biases of the data that they are trained on (<a class="inline_disabled" href="https://ojs.aaai.org/index.php/AIES/article/view/31748/33915" target="_blank">article</a>). This applies to <strong>all Machine Learning</strong> systems. If the data you learn from contains biases, the resulting model will share those biases. Sometimes, those biases are actually the thing you care about (people of age X buy product Y). Sometimes, those biases are things you want to avoid (<a class="inline_disabled" href="https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing" target="_blank">discrimination</a>).</p>
+</div>
+</div>
+<div class="dp-panel-group">
+<h3 class="dp-panel-heading ">Data Quantity</h3>
+<div class="dp-panel-content">
+<h4>Data Quantity</h4>
+<p>There is a general principle in AI. A simple model with a lot of data will often out-perform a complex model with a little bit of data. The more complex the problem you are trying to solve, the larger amount of data you will probably need. Large Language Models like ChatGPT only work because they use ludicrous amounts of input data (basically everything ever written by anyone).</p>
+<p>If a model isn't working properly, often giving it more input data will improve its performance.</p>
+</div>
+</div>
+<div class="dp-panel-group">
+<h3 class="dp-panel-heading ">Data &amp; Information</h3>
+<div class="dp-panel-content">
+<h4>Data &amp; Information</h4>
+<p>The final question is whether there is actual information embedded in the data. It is entirely possible that the data you have and the data you want to predict have no relationship at all. For example, knowing if someone is a man or woman won't tell you anything about what month they were born in (or vice versa). There just isn't a relationship there. Worse are cases where there might appear to be a relationship, but it is purely coincidental. Consider the following (Figure 2). While it appears to be true that the '<em>distance between Saturn and the sun</em>' correlates with particular google searches, this relationship is unlikely to remain into the future as the two have no meaningful causative relationship. Often that data you have and the data you want to predict will be the same. There may appear to be a relationship where there is none.</p>
+<p style="text-align: center;"><img src="$IMS-CC-FILEBASE$/Uploaded%20Media/image-4d9300c2-3406-4fa3-96b7-bcdd5ae593d1.png" alt="image.png" data-api-endpoint="https://learn.adelaide.edu.au/api/v1/courses/35284/files/3968653" data-api-returntype="File" loading="lazy"><br><strong>Figure 2:</strong> Spurious Correlations (from <a class="inline_disabled" href="https://www.tylervigen.com/spurious-correlations" target="_blank">spurious-correlations</a>)</p>
+<p>Unlike many of the previous data issues however, discovering whether two measurements relate to each other often relies on testing it. Building prototype models can be a good way to detect whether a project is worth pursuing or not.</p>
+</div>
+</div>
+</div>
+<h4 style="display: flex; align-items: center; gap: 0.65rem; margin-top: 1.5rem; margin-bottom: 0.5rem;"><span style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; min-width: 28px; border-radius: 50%; background: #140F50; color: #fff; font-size: 0.78rem;">3</span> Computational Resources</h4>
+<p>Now that we have a problem and a good source of data, do we have the resources we need? This could be the machines needed to train the AI model. Simple models can be trained on a laptop. Complex models like LLMs need whole data centres filled with computers to train. If you don't have your own data-centre, don't worry (not many of us do). It is possible to rent out 'compute' from dedicated online cloud-based computer clusters. If you are interested in training your own toy models online, you could consider using <a class="inline_disabled" href="https://colab.google/" target="_blank">Google Colab</a>.</p>
+<p>We also need to consider where the AI will run. Will it be on a computer? On a phone? On the cloud? Depending on the task, each of these platforms will provide benefits and drawbacks. Phones are slow. Computers are unwieldy. The cloud can often have high throughput, but poor latency (delays).</p>
+<h4 style="display: flex; align-items: center; gap: 0.65rem; margin-top: 1.5rem; margin-bottom: 0.5rem;"><span style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; min-width: 28px; border-radius: 50%; background: #140F50; color: #fff; font-size: 0.78rem;">4</span> Training, Testing and Validating</h4>
+<p>This isn't a Machine Learning course, but it is probably useful to get your head around some of the basic issues with machine learning and AI in general. One problem that often occurs with training models, is that it works well in the lab, but poorly out in the real world. This often happens because the training, testing and validation system is flawed.&nbsp;</p>
+<p>Consider the following analogy. You are studying for an upcoming exam. You have two options.</p>
+<div style="background: #fff8ec; border-left: 4px solid #f5a623; border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin: 0.75rem 0 1rem;">
+<div style="font-size: 0.73rem; color: #b07010; margin-bottom: 0.6rem;">📖 Analogy</div>
+<ul style="margin: 0; padding-left: 1.2rem; font-size: 0.9rem; color: #3d3a52; line-height: 1.8;">
+<li><strong>Option 1:</strong> You read the textbook cover-to-cover, read through all the lecture notes and work through the examples and tutorial questions the teacher has given you.</li>
+<li><strong>Option 2:</strong> You download five practice exams and work out how to answer all of the provided questions.</li>
+</ul>
+</div>
+<p>Machine Learning tends to work a lot more like Option 2. So what is the problem? What happens when the teacher creates new questions for the new exam? Unless the new exam looks like the old five exams, you are going to struggle. The only difference with machine learning, is that it uses thousands of exams to train (rather than a paltry five).</p>
+<p>So, how do you know if your new model is working? How do you test it? Well, you can't test it using data you used to train it. That's like testing someone using an exam they have already revised. To overcome this, we will&nbsp;<span style="text-decoration: underline;">always</span> split our available data. Most will be used for <em>training</em>. Some will be used for <em>testing </em>(how good is the model?). Some will be reserved for <em>validation</em>. In machine learning, <em>validation</em> is basically keeping a second test set of data used solely for comparing the performance of different models (we often build many models).&nbsp;<em>Testing</em> is for reporting the performance of the model we decide to use. All models will see the <em>training</em> data and the <em>validation </em>data. Only one model should ever see the <em>test </em>data.</p>
+<p style="font-size: 0.88rem; color: #5c5875; font-style: italic; margin-top: 1.5rem; margin-bottom: 0.25rem;">Steps 1–4 describe the traditional AIML workflow. Large Language Models follow different rules — here's what changes.</p>
+</div>
+<div class="dp-content-block">
+<h3>Large Language Models</h3>
+<p>It should be noted that Large Language Models are a little bit different. Unlike traditional AIML (which has been around for a long time), Large Language Models are a bit trickier. Unlike AIML models, where an organisation will likely be creating their own models from scratch (or basing it on existing models), Large Language Models are so big they are too expensive to train for the average organisation (let alone person). Thus, if you encounter them in the workforce, it will almost always be from the perspective of a consumer.</p>
+<p>However, unlike traditional AIML models, LLMs can be used more generically, to produce things. Think about all the things you can use LLMs for:&nbsp;</p>
+<ul>
+<li>Drafting emails</li>
+<li>Writing stories</li>
+<li>Summarising documents</li>
+</ul>
+<p>What LLMs do at a fundamental level, is translate some text into some new text depending on the semantic content (meaning) of the text. This is an incredibly flexible framework, but also fraught. Language is often extremely ambiguous. Moreover, LLMs are not designed to be deterministic. They contain an element of randomness. This makes them feel more human-like. However, it does make them harder to use in practice. For many real-world problems, you don't really want a 'slightly random' output. There is often a correct answer, or at least a 'consistent' answer.</p>
+<p>So, how can you leverage LLMs? This is still not entirely clear (as of 2026). They can do simple computer coding tasks, edit and draft emails, augment data retrieval (searching for information in documents) and similar tasks. However, they often still require human oversight.</p>
+<h4>Rules of Thumb for LLM Applications</h4>
+<p>When considering LLMs for a task, always remember&nbsp;<strong>Data and Information</strong> (see above). Ask yourself the following questions:</p>
+<div style="background: #f8f6ff; border-radius: 10px; padding: 1rem 1.25rem; margin: 0.5rem 0 1.25rem;">
+<ul style="list-style: none; margin: 0; padding: 0;">
+<li style="display: flex; gap: 0.6rem; align-items: flex-start; padding: 0.45rem 0; border-bottom: 1px solid #e8e4ff; font-size: 0.9rem; color: #3d3a52; line-height: 1.55;"><span style="color: #836bff; flex-shrink: 0;">✅</span>Is the information I need in the data I am providing the LLM?</li>
+<li style="display: flex; gap: 0.6rem; align-items: flex-start; padding: 0.45rem 0; border-bottom: 1px solid #e8e4ff; font-size: 0.9rem; color: #3d3a52; line-height: 1.55;"><span style="color: #836bff; flex-shrink: 0;">✅</span>How consistent do I need the output to be?</li>
+<li style="display: flex; gap: 0.6rem; align-items: flex-start; padding: 0.45rem 0; border-bottom: 1px solid #e8e4ff; font-size: 0.9rem; color: #3d3a52; line-height: 1.55;"><span style="color: #836bff; flex-shrink: 0;">✅</span>Does the answer need to be right (watch out)? Or just mostly right (should be fine)?</li>
+<li style="display: flex; gap: 0.6rem; align-items: flex-start; padding: 0.45rem 0; font-size: 0.9rem; color: #3d3a52; line-height: 1.55;"><span style="color: #836bff; flex-shrink: 0;">✅</span>Does there need to be a human in the loop (almost always yes)?</li>
+</ul>
+</div>
+</div>
+<div class="dp-content-block">
+<div style="background: #140F50; border-radius: 10px; padding: 1.25rem 1.5rem; margin: 1.25rem 0 1.5rem;">
+<h4><span style="color: #ffffff;">Key Takeaways</span></h4>
+<p><span style="color: #ffffff;">A good AI project starts with a precisely defined problem — not "how can we use AI?" but "what specific input produces what specific output?"</span></p>
+<p><span style="color: #ffffff;">Data readiness spans six dimensions: availability, privacy, quality, bias, quantity, and relevance — all must be considered before building anything</span></p>
+<p><span style="color: #ffffff;">Models require separate training, validation, and test data — evaluating a model on data it was trained on produces misleading results</span></p>
+<p><span style="color: #ffffff;">LLMs suit tasks where flexible, approximate outputs are acceptable — human oversight remains essential when accuracy or consistency matt</span>er</p>
+</div>
+</div>
+<div id="dpCustomCss" data-external-style="/cc-dev.css">&nbsp;</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>2.2 How does generative AI work?</title>
+<meta name="identifier" content="gab73c02ca77624f02885cb077a495530"/>
+<meta name="editing_roles" content="teachers"/>
+<meta name="workflow_state" content="active"/>
+</head>
+<body>
+<div id="dp-wrapper" class="dp-wrapper cc">
+<div class="dp-content-block">
+<h3>Large Language Models</h3>
+<h4>Words</h4>
+<p>The first task of any language-based model is to encode words into numbers. Computers think in numbers after all. The question then is, how to do this? A naive approach might just be to list all of the words in the dictionary and give each a number from 1 to... 100,000 or so? Well, this isn't ideal. We want the mathematics of the numbers to reflect the words meaning in a useful way. If cat is 5 and dog is 7, does that mean that "cat + dog" is 12 (which could be pumpkin?).</p>
+<p>A second approach might be to make all the words independent. For example we could create an array of boxes. When you want to represent a word, you simply put in '1' in the box you are interested in and a '0' everywhere else (Figure 1).</p>
+<p>&nbsp;</p>
+<div class="dp-table-scroll">
+<table class="aux" style="border-collapse: collapse; width: 80%;" data-active-table="true">
+<thead>
+<tr>
+<th class="align-middle text-center" style="padding: 10px; width: 16.6%; border: 1px solid white;" scope="col">cat</th>
+<th class="align-middle text-center" style="padding: 10px; width: 16.6%; border: 1px solid white;" scope="col">dog</th>
+<th class="align-middle text-center" style="padding: 10px; width: 16.6%; border: 1px solid white;" scope="col">mouse</th>
+<th class="align-middle text-center" style="padding: 10px; width: 16.6%; border: 1px solid white;" scope="col">...</th>
+<th class="align-middle text-center" style="padding: 10px; width: 16.6%; border: 1px solid white;" scope="col">...</th>
+<th class="align-middle text-center" style="padding: 10px; width: 16.6%; border: 1px solid white;" scope="col">...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="align-middle text-center" style="padding: 10px; width: 16.6%;">0</td>
+<td class="align-middle text-center" style="padding: 10px; width: 16.6%;">1</td>
+<td class="align-middle text-center" style="padding: 10px; width: 16.6%;">0</td>
+<td class="align-middle text-center" style="padding: 10px; width: 16.6%;">0</td>
+<td class="align-middle text-center" style="padding: 10px; width: 16.6%;">0</td>
+<td class="align-middle text-center" style="padding: 10px; width: 16.6%;">...</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: center;">Figure 1: Example of an array of numbers for each word. Dog is one... everything else is zero.</p>
+</div>
+<p>This isn't particularly satisfying either. If we present the data this way, every word is independent of every other word. For example, cat and dog have nothing in common (Figure 2). You could be more 'catty' or less 'doggy'. One might wonder what the point [1, 1] represents on this graph (a half-cat-dog)?</p>
+<figure class="mx-auto d-block dp-image-padded dp-image-bordered dp-image-shadow" style="width: 380px; height: auto;"><img class="dp-popup-image" src="$IMS-CC-FILEBASE$/Topic%2002/catness-dogness.png?canvas_download=1" alt="'catness' and 'dogness 'graph" height="246.109" data-name="catness-dogness.png" data-size="31 KB" data-available-range="false" data-hidden="false" data-file-id="4250991" data-filename="catness-dogness.png" data-locked="false" data-api-endpoint="https://learn.adelaide.edu.au/api/v1/courses/35284/files/4250991" data-api-returntype="File" loading="lazy">
+<figcaption>Figure 2: Cat and dogs have nothing to do with each other.</figcaption>
+</figure>
+<p>So we need a compromise. We need the numbers to not be completely independent (words are connected in some ways), but not dependent in silly ways (cat + dog = pumpkin). Ideally, we would want a system where the dimensions have some kind of abstract meaning, which might allow us to add words together in a meaningful way. For example, we might think of the king-queen relationship being similar to the churl-wench relationship (for reference, a churl is a male peasant and a wench is female peasant). We might imagine:</p>
+<ul>
+<li>man + royal = king</li>
+<li>woman - royal = peasant</li>
+<li>OR even (this might be a stretch)... king - churl + wench = queen</li>
+</ul>
+<figure class="dp-image-padded dp-image-bordered dp-image-shadow mx-auto d-block" style="width: 380px; height: auto;"><img class="dp-popup-image" src="$IMS-CC-FILEBASE$/Topic%2002/man-like-women-like.png?canvas_download=1" alt="man-like and women-like grap" height="225.016" data-name="man-like-women-like.png" data-size="33 KB" data-available-range="false" data-hidden="false" data-file-id="4250992" data-filename="man-like-women-like.png" data-locked="false" data-api-endpoint="https://learn.adelaide.edu.au/api/v1/courses/35284/files/4250992" data-api-returntype="File" loading="lazy">
+<figcaption>Figure 3: Turning words into numbers.</figcaption>
+</figure>
+<p>Let's assume for the moment, we can take all the words in existence that have ever been uploaded to the internet, put them into a magical <strong>deep learning</strong> box and get it to learn the relationships between all words. One way we can set this up is to simply try to predict missing words in sentences.</p>
+<ul>
+<li>That is the ______ sandwich I have ever eaten.</li>
+</ul>
+<p>One can clearly see that some words (best, worst) fit here quite well, but other words don't. We can reward ✔️ the model for getting words that should appear here, and punish it ❌ for words that shouldn't appear here. Eventually (if we train the model for long enough) we should get a dictionary of words, represented by arrows pointing in all different directions.</p>
+<div class="callout-ghost">
+<p><strong>Model concept</strong></p>
+<p>You may be wondering how you could possibly have the whole English language represented as arrows. After all, English is a complex language with many subtle relationships between different words. In order for this to work, the arrows are encoded in higher dimensions (more than regular 3D). Most large models use thousands of dimensions. This is difficult to visualise, but you can represent the data in long tables (1000 columns). If two words have similar values in a single column, it means they are similar in some abstract sense. The more columns that match, the more similar the words.</p>
+</div>
+<h4>Sentences</h4>
+<p>Even if we have definitions for words, that isn't enough. Context matters. Consider:</p>
+<ul>
+<li>Time flies like an arrow.</li>
+<li>Fruit flies like an orange.</li>
+</ul>
+<p>While superficially similar, the way your brain interprets these two sentences is completely different (though perhaps not the first time you read them). In effect, the meaning of a work depends a lot on the words around them. So we need a mechanism to reflect that relationship. Each word in a sentence will now have an 'attention' relationship with every other word. We need a mathematical way to achieve this.&nbsp; Entire the 'affine transform' (Figure 4). What an affine transform does is distort the space in which all our word vectors live. These transformation can cause some words to come closer together (dark blue and purple) while pushing others further apart (light blue and purple).</p>
+<figure class="dp-image-padded dp-image-bordered dp-image-shadow mx-auto d-block" style="width: 450px; height: auto;"><img src="$IMS-CC-FILEBASE$/Topic%2002/affine-transform.gif?canvas_download=1" alt="Affine Transform" height="428" data-name="affine-transform.gif" data-size="2 MB" data-available-range="false" data-hidden="false" data-file-id="4411717" data-filename="affine-transform.gif" data-locked="false" data-api-endpoint="https://learn.adelaide.edu.au/api/v1/courses/35284/files/4412317" data-api-returntype="File" loading="lazy">
+<figcaption>Figure 4: Visual representation of an 'affine transform'.</figcaption>
+</figure>
+<p>&nbsp;</p>
+<p>To give an example, consider the following to sentences.</p>
+<ul>
+<li>Deposit your money in the <strong>bank</strong>.</li>
+<li>She sat by the river <strong>bank</strong>.</li>
+</ul>
+<p>When around the word <em>money</em>, the word <em>bank </em>becomes more like the word <em>building</em>. When around the word&nbsp;<em>river</em>, the word&nbsp;<em>bank</em> becomes more like the word <i>edge</i>.</p>
+<h4>Text Generation</h4>
+<p>Now we have a way of encoding meaning, we now need to finally build a chat-bot. This part is surprisingly easy (at least conceptually). We simply build a machine that <strong>guesses </strong>the next word in a sentence. To train this model, we take every sentence we have ever found on the internet, published literature and other documents. We take a chunk of the text, cut the end off and ask the model... what word comes next (Figure 5). We do this using massive data centres and it turns out, that if your model is big enough, it begins to talk like a person.</p>
+<figure class="mx-auto d-block dp-image-padded dp-image-bordered dp-image-shadow" style="width: 600px; height: auto;"><img src="$IMS-CC-FILEBASE$/Topic%2002/story-animation.gif?canvas_download=1" alt="story-animation.gif" height="270" data-name="story-animation.gif" data-size="7 MB" data-available-range="false" data-hidden="false" data-file-id="4436770" data-filename="story-animation.gif" data-locked="false" data-api-endpoint="https://learn.adelaide.edu.au/api/v1/courses/35284/files/4437106" data-api-returntype="File" loading="lazy">
+<figcaption>Figure 5:&nbsp;Next token prediction</figcaption>
+</figure>
+<p>One thing to note, is that the model will never work out the 'perfect' word to go next. Instead, it will create a probability distribution (here are some words that are likely). To ensure the model sounds natural, it actually makes a random selection (with more likely words being more likely) which prevents it from getting stuck in loops or sounding repetitive.</p>
+<h4>Hidden Prompts</h4>
+<p>There is one last step however, one that is not obvious and is completely hidden from users of chatbots. It is the hidden prompt.</p>
+<p>When you make a request of a chatbot, "<em>write me an essay</em>", "<em>what is the capital of Australia</em>", that isn't the only thing being given to the AI. AIs always have a pre-prompt. To give you a sense (they are secret and proprietary after all), here is an example of the kinds of things you might see in a hidden-prompt:</p>
+<pre>[System]<br>You are ChatGPT, a large language model trained by OpenAI.<br>Follow these rules:<br>- Be helpful, accurate, and safe.<br>- Do not provide harmful instructions.<br>- Ask clarifying questions if needed.<br>- Be concise unless the user asks for depth.<br><br>[Developer]<br>When explaining technical topics, prefer clear structure and examples.<br>Avoid unnecessary jargon.<br><br>[Conversation History]<br>User: What is a neural network?<br>Assistant: A neural network is a model inspired by...<br>User: How does it learn?<br><br>[User]<br>Explain backpropagation in simple terms.</pre>
+<p>&nbsp;As you can see here, there are some 'behavioural' elements. The LLM should be friendly, and truthful. There are some hints on what kinds of explanations to use, as well as a summary of the conversation.</p>
+</div>
+<div class="dp-content-block">
+<h3>What this all means</h3>
+<h4>There is no 'hard' meaning</h4>
+<p>Now that we understand some of the inner workings of the machine, what does this mean. Firstly, the meaning of words, is all contextual. The model doesn't know what a dog is, outside of conversations about dogs. There is a good chance that a model might be tricked by sentences like "fruit flies like an orange", because it might not quite get that fruit can't fly and neither can oranges except if enough people talked about the non-flying properties of fruit on the internet somewhere. "Oranges can't fly" isn't a common utterance.</p>
+<p>This means, that in <em>Large Language Models</em>, there is no 'bottom' meaning or 'canonical' truth. The words all lean on each other for meaning. Another way of thinking about it, is the saying '<a class="inline_disabled" href="https://en.wikipedia.org/wiki/Turtles_all_the_way_down" target="_blank"><em>turtles all the way down</em></a>' which describes problems which infinitely regress. In several mythologies, the earth sits atop a turtle to keep it aloft. Problem solved. But then... what does the turtle sit on? Another turtle? And another? Is it turtles all the way down? In the case of LLMs, the answer is yes. No individual word has an inherent meaning. Each word relies on other words, which in turn rely on other words.</p>
+<figure class="mx-auto d-block dp-image-padded dp-image-bordered dp-image-shadow" style="width: 360px;"><img class="dp-popup-image" src="$IMS-CC-FILEBASE$/Topic%2002/Turtles.jpg?canvas_download=1" alt="Turtles.jpg" height="360" data-name="Turtles.jpg" data-size="171 KB" data-available-range="false" data-hidden="false" data-file-id="4393863" data-filename="Turtles.jpg" data-locked="false" data-api-endpoint="https://learn.adelaide.edu.au/api/v1/courses/35284/files/4393863" data-api-returntype="File" loading="lazy">
+<figcaption>Figure 6: Turtles all the way down (Nightcafe studio).</figcaption>
+</figure>
+<p>With a human, when you ask them what a dog is, at the end of the day, they can point at a dog and say '<em>that is a dog</em>' or point at a tree and say '<em>that is not a dog</em>'. For LLMs, you will just get more and more words.</p>
+<h4>Meaning is approximate and slightly random</h4>
+<p>If the meaning of words is represented by arrows which point in the same direction (for similar meaning) or different directions (for unrelated meanings) it works pretty well for creating synthetic conversations (i.e., a chat-bot). A lot of human speech is metaphoric (replacing one expression with another) and somewhat vague. We can replace '<em>satisfactory</em>' with '<em>acceptable</em>' or even '<em>good enough for m</em>e' without losing the meaning. Even in regular speech we often need clarification:</p>
+<ul>
+<li>"<em>I saw the man with the telescope</em>" - who had the telescope? Me or the man?</li>
+</ul>
+<p>However, there are quite a few contexts (i.e., anything to do with engineering, law or other more precise fields) where '<em>good enough</em>' is not '<em>satisfactory</em>'. For example, in mathematics, "1 + 1 = 2". There aren't many contexts where "3" would be an acceptable answer. In law, the word "murder" invariably means "<em>a crime where a person was wrongfully killed with intent</em>" rather than "<em>a word used to describe a group of crows</em>".</p>
+<p>The main consequence of this is that is difficult to apply LLMs to these fields without rigorous human oversight. This is the main reason we haven't seen AI 'take-off' in all professional fields — yet.</p>
+<h4>The system isn't entirely honest</h4>
+<p>The pre-prompts aren't shown to the user. Not only does this mean that you don't really know what the agent's motives are (which is troubling). Your favourite LLM might feel like a friendly, honest buddy, but what happens when the owner slips "make my company money" into the directives without telling the users (assuming it is not there already)?</p>
+<p>There are other consequences of these directives too. Consider the following:</p>
+<ul>
+<li>Be helpful</li>
+<li>Don't provide harmful answers</li>
+</ul>
+<p>How do these instructions interact when a user asks how to hurt themselves? One of these directives is going to be contradicted or ignored. There are many stories about 'malicious genies' who grant wishes based on the 'precise wordings' of language.</p>
+<ul>
+<li>Does 'creating world peace' mean 'eliminating all human life'? (no people =&gt; no wars)</li>
+<li>Does 'lower crime' mean 'imprisoning most/all of humanity'?</li>
+<li>Does 'be less politically correct' mean 'become <a href="https://www.npr.org/2025/07/09/nx-s1-5462609/grok-elon-musk-antisemitic-racist-content">MechaHitler</a>'?</li>
+</ul>
+<p>Even if you know every instruction that has gone into the model, it is difficult to know how the model will react.</p>
+<h4>Hallucinations and Context Windows</h4>
+<p>LLMs work by predicting the next word. Sometimes, that prediction can be wrong. After all, not everything people say is true (i.e., the data the model is trained on). The directive 'be helpful', often results in LLMs providing confidently wrong answers (colloquially referred to as <em>hallucinations</em>). This problem is exacerbated by extended use.</p>
+<p>Have you ever had a conversation where you end up talking about a topic and don't remember how you got there ("how did we get from the Winter Olympics to the French Revolution?")? LLMs have a similar problem. Once a single hallucination has entered the conversation history, this error will now be summarised as a fact. As the conversation grows, so do the errors, and the errors built upon errors. Unfortunately what this means is that eventually LLMs conduct what resembles a long game of "telephone". Eventually, they will detach from reality (not that they were tightly bound in the first place), like a photocopy of a photocopy of a photocopy until they start spraying gibberish.</p>
+<p>This is a result of the&nbsp;<em>context window</em> of an LLM. LLMs have two kinds of 'memory'. The first is the memory they get through their training, their <em>knowledge base</em>. The second is the conversation leading up to the next thing they are supposed to say (the <em>context window</em>). Unsurprisingly, there is a limit to how much of the previous conversation they can remember (memory is limited after all). To overcome this, they need to summarise previous conversations and these summaries replace the verbatim text of the conversation. As the <em>context window</em> begins to contain more and more&nbsp;<em>hallucinations...&nbsp;</em>the accuracy declines. Sometimes starting a new conversation is the only solution.</p>
+</div>
+<p>&nbsp;</p>
+<div id="dpCustomCss" data-external-style="/cc-dev.css">&nbsp;</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>2.2 How does generative AI work? [CONCEPT]</title>
+<meta name="identifier" content="g0f67990995fe6e316ffbb38f4b9d1269"/>
+<meta name="editing_roles" content="teachers"/>
+<meta name="workflow_state" content="unpublished"/>
+</head>
+<body>
+<div id="dp-wrapper" class="dp-wrapper cc">
+<div class="dp-content-block">
+<h3>Large Language Models</h3>
+<h4>Words</h4>
+<p>The first task of any language-based model is to encode words into numbers. Computers think in numbers after all. The question then is, how to do this? A naive approach might just be to list all of the words in the dictionary and give each a number from 1 to... 100,000 or so? Well, this isn't ideal. We want the mathematics of the numbers to reflect the words meaning in a useful way. If cat is 5 and dog is 7, does that mean that "cat + dog" is 12 (which could be pumpkin?).</p>
+<p>A second approach might be to make all the words independent. For example we could create an array of boxes. When you want to represent a word, you simply put in '1' in the box you are interested in and a '0' everywhere else (Figure 1).</p>
+<p>&nbsp;</p>
+<div class="dp-table-scroll">
+<table class="aux" style="border-collapse: collapse; width: 80%;" data-active-table="true">
+<thead>
+<tr>
+<th class="align-middle text-center" style="padding: 10px; width: 16.6%; border: 1px solid white;" scope="col">cat</th>
+<th class="align-middle text-center" style="padding: 10px; width: 16.6%; border: 1px solid white;" scope="col">dog</th>
+<th class="align-middle text-center" style="padding: 10px; width: 16.6%; border: 1px solid white;" scope="col">mouse</th>
+<th class="align-middle text-center" style="padding: 10px; width: 16.6%; border: 1px solid white;" scope="col">...</th>
+<th class="align-middle text-center" style="padding: 10px; width: 16.6%; border: 1px solid white;" scope="col">...</th>
+<th class="align-middle text-center" style="padding: 10px; width: 16.6%; border: 1px solid white;" scope="col">...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="align-middle text-center" style="padding: 10px; width: 16.6%;">0</td>
+<td class="align-middle text-center" style="padding: 10px; width: 16.6%;">1</td>
+<td class="align-middle text-center" style="padding: 10px; width: 16.6%;">0</td>
+<td class="align-middle text-center" style="padding: 10px; width: 16.6%;">0</td>
+<td class="align-middle text-center" style="padding: 10px; width: 16.6%;">0</td>
+<td class="align-middle text-center" style="padding: 10px; width: 16.6%;">...</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: center;">Figure 1: Example of an array of numbers for each word. Dog is one... everything else is zero.</p>
+</div>
+<p>This isn't particularly satisfying either. If we present the data this way, every word is independent of every other word. For example, cat and dog have nothing in common (Figure 2). You could be more 'catty' or less 'doggy'. One might wonder what the point [1, 1] represents on this graph (a half-cat-dog)?</p>
+<figure class="mx-auto d-block dp-image-padded dp-image-bordered dp-image-shadow" style="width: 380px; height: auto;"><img class="dp-popup-image" src="$IMS-CC-FILEBASE$/Topic%2002/catness-dogness.png?canvas_download=1" alt="'catness' and 'dogness 'graph" height="246.109" data-name="catness-dogness.png" data-size="31 KB" data-available-range="false" data-hidden="false" data-file-id="4250991" data-filename="catness-dogness.png" data-locked="false" data-api-endpoint="https://learn.adelaide.edu.au/api/v1/courses/35284/files/4250991" data-api-returntype="File" loading="lazy">
+<figcaption>Figure 2: Cat and dogs have nothing to do with each other.</figcaption>
+</figure>
+<p>So we need a compromise. We need the numbers to not be completely independent (words are connected in some ways), but not dependent in silly ways (cat + dog = pumpkin). Ideally, we would want a system where the dimensions have some kind of abstract meaning, which might allow us to add words together in a meaningful way. For example, we might think of the king-queen relationship being similar to the churl-wench relationship (for reference, a churl is a male peasant and a wench is female peasant). We might imagine:</p>
+<ul>
+<li>man + royal = king</li>
+<li>woman - royal = peasant</li>
+<li>OR even (this might be a stretch)... king - churl + wench = queen</li>
+</ul>
+<figure class="dp-image-padded dp-image-bordered dp-image-shadow mx-auto d-block" style="width: 380px; height: auto;"><img class="dp-popup-image" src="$IMS-CC-FILEBASE$/Topic%2002/man-like-women-like.png?canvas_download=1" alt="man-like and women-like grap" height="225.016" data-name="man-like-women-like.png" data-size="33 KB" data-available-range="false" data-hidden="false" data-file-id="4250992" data-filename="man-like-women-like.png" data-locked="false" data-api-endpoint="https://learn.adelaide.edu.au/api/v1/courses/35284/files/4250992" data-api-returntype="File" loading="lazy">
+<figcaption>Figure 3: Turning words into numbers.</figcaption>
+</figure>
+<p>Let's assume for the moment, we can take all the words in existence that have ever been uploaded to the internet, put them into a magical <strong>deep learning</strong> box and get it to learn the relationships between all words. One way we can set this up is to simply try to predict missing words in sentences.</p>
+<ul>
+<li>That is the ______ sandwich I have ever eaten.</li>
+</ul>
+<p>One can clearly see that some words (best, worst) fit here quite well, but others don't. We can reward the model for getting words that should appear here, and punish it for words that shouldn't appear here and eventually (if we train the model for long enough) we should get a dictionary of words, represented by arrows pointing in all different directions in thousands of dimensions (yes... we need more than 3 dimensions... yes... that is hard to imagine).</p>
+<h4>Sentences</h4>
+<p>Even if we have definitions for words, that isn't enough. Context matters. Consider:</p>
+<ul>
+<li>Time flies like an arrow.</li>
+<li>Fruit flies like an orange.</li>
+</ul>
+<p>While superficially similar, the way your brain interprets these two sentences is completely different.</p>
+<p><span style="background-color: #ffff00;">[TODO]</span></p>
+</div>
+<p>&nbsp;</p>
+<div id="dpCustomCss" data-external-style="/cc-dev.css">&nbsp;</div>
+</div>
+</body>
+</html>

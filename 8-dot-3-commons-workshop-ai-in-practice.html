@@ -1,0 +1,285 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>8.3 Commons Workshop: AI in Practice</title>
+<meta name="identifier" content="ge443399e847f41da76cee73e15d971af"/>
+<meta name="editing_roles" content="teachers"/>
+<meta name="workflow_state" content="active"/>
+</head>
+<body>
+<div id="dp-wrapper" class="dp-wrapper cc">
+<div class="dp-content-block">
+<p><span style="color: #6956cc; font-family: 'Roboto Serif', serif; font-size: 1em;">This week, we will create a plan for how we could leverage AIML to solve a problem based on a case study.</span></p>
+</div>
+<div class="dp-content-block">
+<h3>Tasks: Preparation</h3>
+<p><span>To have a productive Commons Workshop, we suggest the following:</span></p>
+<ul>
+<li><span>Read the online learning: <a title="8.1 How can we leverage AI" href="$WIKI_REFERENCE$/pages/ga99973c8f74c7a3ecda4848e7d83088a" data-course-type="wikiPages" data-published="true" data-api-endpoint="https://learn.adelaide.edu.au/api/v1/courses/35284/pages/8-dot-1-how-can-we-leverage-ai" data-api-returntype="Page">8.1 How can we leverage AI</a></span></li>
+</ul>
+</div>
+<div class="dp-content-block">
+<h3>Tasks: In-Class</h3>
+<h4><span>Task #1: AI Project Activity 5 (30 minutes)</span></h4>
+<p><span style="background-color: #ffff00;">[TODO]</span></p>
+<h4><span>Task #2: AI at Work: Conception to Practice (80 minutes)</span></h4>
+<p><span>You will be given one of a few different case studies to work on. This will consist of a basic problem statement. Your goal is to work through the various stages of bringing a basic problem statement into a AIML plan.</span></p>
+<p><span>By the end of the session you should have developed:</span></p>
+<ul>
+<li><span>A high-level outline of how the system would work.</span></li>
+<li><span>A list of questions that need to be asked before the project goes ahead.</span>
+<ul>
+<li><span>Answers to some of those questions.</span></li>
+<li><span>'For further research' for others.</span></li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p><span>Case Studies</span></p>
+<p><span>1. Mining</span></p>
+<p>&nbsp;</p>
+<p data-start="392" data-end="650"><strong data-start="392" data-end="404">Context:</strong><br data-start="404" data-end="407">Mining companies are increasingly using <a class="inline_disabled" href="https://www.mining-technology.com/interviews/ai-mining-rio-tinto/?cf-view" target="_blank">AI-driven computer vision to improve safety</a> This might incldue aspects such as unsafe proximity to vehicles, missing PPE, or unstable terrain.</p>
+<p data-start="392" data-end="650"><strong data-start="674" data-end="696">Data Availability:</strong></p>
+<ul data-start="697" data-end="899">
+<li data-section-id="1rj6yn" data-start="697" data-end="781">What data sources are available? (CCTV, drones, vehicle sensors, wearable devices)</li>
+<li data-section-id="1npp1nm" data-start="782" data-end="830">How do we label “hazards” vs “safe behaviour”?</li>
+<li data-section-id="d0sm59" data-start="831" data-end="899">Can we integrate environmental data (dust, weather, lighting, shift times)?</li>
+</ul>
+<p data-start="901" data-end="918"><strong data-start="901" data-end="918">Data Privacy:</strong></p>
+<ul data-start="919" data-end="1061">
+<li data-section-id="1eidh79" data-start="919" data-end="961">Are workers identifiable in the footage? Do they need to be?</li>
+<li data-section-id="1fg071a" data-start="962" data-end="1016">Who owns and controls this data (company vs worker)?</li>
+<li data-section-id="1t6zeoe" data-start="1017" data-end="1061">How is surveillance communicated to staff?</li>
+</ul>
+<p data-start="1063" data-end="1092"><strong data-start="1063" data-end="1092">Data Quality/Information:</strong></p>
+<ul data-start="1093" data-end="1263">
+<li data-section-id="r8cyxq" data-start="1093" data-end="1155">What conditions affect accuracy (lighting, dust, darkness, occlusion)?</li>
+<li data-section-id="1b5qin" data-start="1218" data-end="1263">Do we need differnt types of data (visual feeds + LiDAR, audio)?</li>
+</ul>
+<p data-start="1265" data-end="1283"><strong data-start="1265" data-end="1283">Data Quantity:</strong></p>
+<ul data-start="1284" data-end="1389">
+<li data-section-id="1arcxcm" data-start="1284" data-end="1332">How many examples of “near misses” do we need?</li>
+<li data-section-id="19hej0g" data-start="1333" data-end="1389">Are rare but critical events sufficiently represented?</li>
+</ul>
+<p data-start="1391" data-end="1405"><strong data-start="1391" data-end="1405">Data Bias:</strong></p>
+<ul data-start="1406" data-end="1543">
+<li data-section-id="1ssjrdx" data-start="1406" data-end="1483">Does the system perform equally well across different sites and conditions?</li>
+<li data-section-id="vrem0t" data-start="1484" data-end="1543">Are certain worker behaviours over- or under-represented?</li>
+</ul>
+<p data-start="1545" data-end="1573"><strong data-start="1545" data-end="1573">Computational Resources:</strong></p>
+<ul data-start="1574" data-end="1733">
+<li data-section-id="1dtuoo0" data-start="1574" data-end="1632">Can detection run in real time on-site?</li>
+<li data-section-id="1teq55r" data-start="1633" data-end="1680">What latency is acceptable for safety alerts?</li>
+<li data-section-id="rkq983" data-start="1681" data-end="1733">Cost and security trade-offs between cloud vs local processing?</li>
+</ul>
+<p data-start="1735" data-end="1754"><strong data-start="1735" data-end="1754">Ethics &amp; Legal:</strong></p>
+<ul data-start="1755" data-end="1937">
+<li data-section-id="6xr40n" data-start="1755" data-end="1809">What happens if the system fails to detect a hazard?</li>
+<li data-section-id="2g742f" data-start="1810" data-end="1881">What if false alarms disrupt operations or unfairly penalises workers?</li>
+<li data-section-id="131yvf7" data-start="1882" data-end="1937">Does AI shift responsibility from employer to system?</li>
+</ul>
+<p>&nbsp;2.&nbsp;</p>
+<p data-start="2039" data-end="2245">Systems like those used by <a class="inline_disabled" href="https://www.nsw.gov.au/ministerial-releases/innovative-technology-supporting-faster-smarter-bush-fire-response#:~:text=AI%2Dpowered%20camera%20systems%2C%20thermal,and%20better%20on%2Dground%20coordination." target="_blank"><span class="hover:entity-accent entity-underline inline cursor-pointer align-baseline"><span class="whitespace-normal">NSW Rural Fire Service</span></span></a> use AI with cameras, satellites, and sensors to detect fires early.</p>
+<p data-start="2039" data-end="2245"><strong data-start="2269" data-end="2291">Data Availability:</strong></p>
+<ul data-start="2292" data-end="2463">
+<li data-section-id="1roilgf" data-start="2292" data-end="2367">What data sources exist? (satellite imagery, camera towers, weather data, state of the bush (dry, wet etc))</li>
+<li data-section-id="8xorb5" data-start="2368" data-end="2415">How do we label smoke vs cloud vs dust?</li>
+<li data-section-id="18jeu43" data-start="2416" data-end="2463">Can historical fire data improve predictions?</li>
+</ul>
+<p data-start="2465" data-end="2482"><strong data-start="2465" data-end="2482">Data Privacy:</strong></p>
+<ul data-start="2483" data-end="2583">
+<li data-section-id="rmymy1" data-start="2483" data-end="2533">Do these cameras capture private land or people?</li>
+<li data-section-id="s473km" data-start="2534" data-end="2583">Who has access to real-time surveillance feeds?</li>
+</ul>
+<p data-start="2585" data-end="2614"><strong data-start="2585" data-end="2614">Data Quality/Information:</strong></p>
+<ul data-start="2615" data-end="2772">
+<li data-section-id="8kzkh5" data-start="2615" data-end="2663">How does weather (fog, wind) affect detection?</li>
+<li data-section-id="xcjxdl" data-start="2664" data-end="2730">What spatial resolution is required to detect small fires early?</li>
+<li data-section-id="bjg8j8" data-start="2731" data-end="2772">How frequently must images be captured?</li>
+</ul>
+<p data-start="2774" data-end="2792"><strong data-start="2774" data-end="2792">Data Quantity:</strong></p>
+<ul data-start="2793" data-end="2887">
+<li data-section-id="1rs41a1" data-start="2793" data-end="2837">How many fire/no-fire examples are needed?</li>
+<li data-section-id="milas2" data-start="2838" data-end="2887">Are early-stage fires sufficiently represented?</li>
+</ul>
+<p data-start="2889" data-end="2903"><strong data-start="2889" data-end="2903">Data Bias:</strong></p>
+<ul data-start="2904" data-end="3026">
+<li data-section-id="15t2qps" data-start="2904" data-end="2981">Are models trained mostly on certain regions (e.g., forests vs grasslands)?</li>
+<li data-section-id="i6s9l2" data-start="2982" data-end="3026">Does performance drop in new environments?</li>
+</ul>
+<p data-start="3028" data-end="3056"><strong data-start="3028" data-end="3056">Computational Resources:</strong></p>
+<ul data-start="3057" data-end="3203">
+<li data-section-id="fgqhyk" data-start="3057" data-end="3113">Can processing happen in real time for rapid response?</li>
+<li data-section-id="sw5a24" data-start="3114" data-end="3162">What infrastructure is needed in remote areas?</li>
+<li data-section-id="18y4mql" data-start="3163" data-end="3203">How scalable is the system nationally?</li>
+</ul>
+<p data-start="3205" data-end="3224"><strong data-start="3205" data-end="3224">Ethics &amp; Legal:</strong></p>
+<ul data-start="3225" data-end="3379">
+<li data-section-id="6l9617" data-start="3225" data-end="3269">What if a fire is missed (false negative)?</li>
+<li data-section-id="1xi2v2w" data-start="3270" data-end="3323">What if false alarms cause unnecessary evacuations?</li>
+<li data-section-id="1ggxhhc" data-start="3324" data-end="3379">Who is accountable for decisions made from AI alerts?</li>
+</ul>
+<p>&nbsp;</p>
+<p>3. Medical Diagnosis. You've seen this before but now it is framed as an AI development</p>
+<p data-start="3703" data-end="3725"><strong data-start="3703" data-end="3725">Data Availability:</strong></p>
+<ul data-start="3726" data-end="3904">
+<li data-section-id="oa688w" data-start="3726" data-end="3781">What datasets are available (CT scans, MRIs, X-rays)?</li>
+<li data-section-id="oa688w" data-start="3726" data-end="3781">What format is that data in? Is it consistent across the sector</li>
+<li data-section-id="1v1utmq" data-start="3782" data-end="3851">How are images labelled (expert annotation vs pathology-confirmed)?</li>
+<li data-section-id="z3a7ns" data-start="3852" data-end="3904">Can longitudinal patient data improve predictions?</li>
+</ul>
+<p data-start="3906" data-end="3923"><strong data-start="3906" data-end="3923">Data Privacy:</strong></p>
+<ul data-start="3924" data-end="4043">
+<li data-section-id="1rstusf" data-start="3924" data-end="3957">How is patient data anonymised?</li>
+<li data-section-id="1tsykc1" data-start="3958" data-end="4003">Who has access to sensitive medical images?</li>
+<li data-section-id="as4v9i" data-start="4004" data-end="4043">Are there risks of re-identification?</li>
+<li data-section-id="as4v9i" data-start="4004" data-end="4043">How much data is required eg do you need case notes and GP referals?</li>
+</ul>
+<p data-start="4045" data-end="4074"><strong data-start="4045" data-end="4074">Data Quality/Information:</strong></p>
+<ul data-start="4075" data-end="4231">
+<li data-section-id="6tnvla" data-start="4075" data-end="4131">How consistent are imaging protocols across hospitals?</li>
+<li data-section-id="xp4k3k" data-start="4132" data-end="4185">What resolution is required for reliable diagnosis?</li>
+<li data-section-id="1lrw3e1" data-start="4186" data-end="4231">How do we handle noisy or incomplete scans?</li>
+</ul>
+<p data-start="4233" data-end="4251"><strong data-start="4233" data-end="4251">Data Quantity:</strong></p>
+<ul data-start="4252" data-end="4355">
+<li data-section-id="1qcuw2c" data-start="4252" data-end="4310">How many labelled cases are needed for robust detection?</li>
+<li data-section-id="1t4j95o" data-start="4311" data-end="4355">Are rare conditions sufficiently represented?</li>
+</ul>
+<p data-start="4357" data-end="4371"><strong data-start="4357" data-end="4371">Data Bias:</strong></p>
+<ul data-start="4372" data-end="4492">
+<li data-section-id="sw8162" data-start="4372" data-end="4442">Does the model perform equally across demographics (age, ethnicity)?</li>
+<li data-section-id="gsn6ry" data-start="4443" data-end="4492">Are datasets skewed toward certain populations?</li>
+</ul>
+<p data-start="4494" data-end="4522"><strong data-start="4494" data-end="4522">Computational Resources:</strong></p>
+<ul data-start="4523" data-end="4659">
+<li data-section-id="z1jxun" data-start="4523" data-end="4570">Can AI run in real time in clinical settings?</li>
+<li data-section-id="5i5i6o" data-start="4571" data-end="4612">What hardware is required in hospitals?</li>
+<li data-section-id="1t3agjw" data-start="4613" data-end="4659">How costly is model training and validation?</li>
+</ul>
+<p data-start="4661" data-end="4680"><strong data-start="4661" data-end="4680">Ethics &amp; Legal:</strong></p>
+<ul data-start="4681" data-end="4839">
+<li data-section-id="1wui0r6" data-start="4681" data-end="4727">What if AI misses a tumour (false negative)?</li>
+<li data-section-id="1hnaiwm" data-start="4728" data-end="4786">What if AI flags something incorrectly (false positive)?</li>
+<li data-section-id="1hnaiwm" data-start="4728" data-end="4786">What type of error is worse?</li>
+<li data-section-id="d8c109" data-start="4787" data-end="4839">Who is responsible? The clinician or the AI system?</li>
+<li data-section-id="d8c109" data-start="4787" data-end="4839">Could we take the human out of the diagnosis loop?</li>
+</ul>
+<p>4. Indigenous art development</p>
+<p data-start="305" data-end="601">This case study is 100% hypothetical but <a class="inline_disabled" href="https://www.murdoch.edu.au/news/articles/how-ai-is-creating-a-new-form-of-tech-colonialism" target="_blank">raises some very important issues</a>. What if we could use AI to create an indigenous art exhibition? Just because we can, shoudl we? If we won't do it for this case, should we do it anywhere?&nbsp;</p>
+<ul>
+<li data-section-id="1jh98sr" data-start="2301" data-end="2370">Can AI ever authentically represent culture, or only imitate it?</li>
+<li data-section-id="vfnpw1" data-start="2371" data-end="2438">Should AI-generated art be labelled as such in public spaces?</li>
+<li data-section-id="vv3uy7" data-start="2439" data-end="2509">Who should benefit financially from AI-generated cultural works?</li>
+<li data-section-id="1xxzsya" data-start="2510" data-end="2561">Is this empowering artists or replacing them?</li>
+</ul>
+<p data-start="305" data-end="601"><strong data-start="3703" data-end="3725">Data Availability:</strong></p>
+<ul data-start="651" data-end="872">
+<li data-section-id="u0iwbb" data-start="651" data-end="744">What data would be used to train the AI? (existing artworks, patterns, symbols, landscapes)</li>
+<li data-section-id="1tlp3c6" data-start="745" data-end="783">Who provides and approves this data?</li>
+<li data-section-id="vhi4ro" data-start="784" data-end="872">Can oral histories, stories, or cultural meanings be encoded or is this purely visual?</li>
+</ul>
+<span role="text"><strong data-start="883" data-end="900">Data Privacy:</strong></span>
+<ul data-start="1112" data-end="1337">
+<li data-section-id="1jjx82c" data-start="901" data-end="962">Are any artworks or cultural elements restricted or sacred?</li>
+<li data-section-id="1w0gp5t" data-start="963" data-end="1007">Who owns the data used to train the model?</li>
+<li data-section-id="swf68o" data-start="1008" data-end="1069">Do artists or communities consent to their work being used?<strong style="background-color: #140f50; color: #ffffff; font-size: 28px;" data-start="1080" data-end="1111"></strong><strong data-start="4045" data-end="4074"></strong></li>
+<li data-section-id="swf68o" data-start="1008" data-end="1069"><strong data-start="4045" data-end="4074">Data Quality/Information:</strong></li>
+<li data-section-id="1ro14vr" data-start="1112" data-end="1183">How do we ensure the AI captures meaning—not just aesthetic patterns?</li>
+<li data-section-id="xb28ml" data-start="1184" data-end="1263">What defines “quality” in cultural artwork: accuracy, authenticity, or impact?</li>
+<li data-section-id="ju3i08" data-start="1264" data-end="1337">Can the AI distinguish between different Indigenous nations and styles?</li>
+<li data-section-id="ju3i08" data-start="1264" data-end="1337"><strong data-start="4233" data-end="4251"></strong></li>
+<li data-section-id="ju3i08" data-start="1264" data-end="1337"><strong data-start="4233" data-end="4251">Data Quantity:</strong></li>
+<li data-section-id="rbvw8l" data-start="1367" data-end="1440">Is there enough publicly available data to train the model responsibly?</li>
+<li data-section-id="bxjr0a" data-start="1441" data-end="1503">Should limited datasets be used to avoid overgeneralisation?</li>
+</ul>
+<p><span role="text"><strong data-start="1514" data-end="1528">Data Bias:</strong></span></p>
+<ul data-start="1529" data-end="1693">
+<li data-section-id="fxn8yz" data-start="1529" data-end="1602">Does the AI collapse diverse Indigenous cultures into a single “style”?</li>
+<li data-section-id="nv7sc8" data-start="1603" data-end="1652">Are certain artists or regions overrepresented?</li>
+<li data-section-id="1n3te22" data-start="1653" data-end="1693">Does the system reinforce stereotypes?</li>
+<li data-section-id="1n3te22" data-start="1653" data-end="1693"><strong style="background-color: #140f50; color: #ffffff; font-size: 28px;" data-start="1704" data-end="1732"></strong></li>
+<li data-section-id="1n3te22" data-start="1653" data-end="1693"><strong data-start="4494" data-end="4522">Computational Resources:</strong></li>
+</ul>
+<ul data-start="1733" data-end="1918">
+<li data-section-id="qjt2b1" data-start="1733" data-end="1792">Is this generated in real time for dynamic installations?</li>
+<li data-section-id="29n8g2" data-start="1793" data-end="1867">What infrastructure is needed for large scale projection or interaction?</li>
+<li data-section-id="1xqq01q" data-start="1868" data-end="1918">Could this run as an interactive public exhibit?<strong style="background-color: #140f50; color: #ffffff; font-size: 28px;" data-start="1929" data-end="1948"></strong></li>
+<li data-section-id="1xqq01q" data-start="1868" data-end="1918"></li>
+<li data-section-id="1xqq01q" data-start="1868" data-end="1918"><strong data-start="4494" data-end="4522">Ethics and Legal:</strong></li>
+</ul>
+<ul data-start="1949" data-end="2243">
+<li data-section-id="12jry4q" data-start="1949" data-end="2018">What if the AI produces culturally inappropriate or offensive work?</li>
+<li data-section-id="6j4g9i" data-start="2019" data-end="2097">Who owns the generated artwork?</li>
+<li data-section-id="19yxvwa" data-start="2098" data-end="2160">Should AI be used at all in representing Indigenous culture?</li>
+<li data-section-id="14ucpu6" data-start="2161" data-end="2243">What is the difference between <strong data-start="2194" data-end="2242">inspiration, appropriation, and exploitation</strong>?</li>
+</ul>
+<p>&nbsp;5.&nbsp;</p>
+<p data-start="292" data-end="657">Film studios have been using AI and VFX to <a class="inline_disabled" href="https://www.dailymotion.com/video/xa0zq4s" target="_blank">de-age actors</a>, recreate <a class="inline_disabled" href="https://www.youtube.com/watch?v=5p4Zgq_YZhs" target="_blank">deceased performers,</a> or generate <a class="inline_disabled" href="https://www.youtube.com/watch?v=ZRzZL2f4Llw" target="_blank">entirely digital actors.</a> Films like <span class="hover:entity-accent entity-underline inline cursor-pointer align-baseline"><span class="whitespace-normal">The Irishman</span></span> and <span class="hover:entity-accent entity-underline inline cursor-pointer align-baseline"><span class="whitespace-normal">Rogue One: A Star Wars Story </span></span>demonstrate early versions of this. The quick demise of Sora, OpenAIs video gernating tool shows that the ability to do something doesn't mean it will be accepted</p>
+<p data-start="292" data-end="657"><span role="text"><strong data-start="684" data-end="706">Data Availability:</strong></span></p>
+<ul data-start="707" data-end="927">
+<li data-section-id="1opoem6" data-start="707" data-end="795">What data is needed to recreate an actor? (past films, facial scans, voice recordings)</li>
+<li data-section-id="twyzhz" data-start="796" data-end="848">Who owns this data? the actor, the studio, or both?</li>
+<li data-section-id="4mnipg" data-start="849" data-end="927">Can performances (emotion, timing) be captured from data or only the likeness of the actor?<strong style="background-color: #140f50; color: #ffffff; font-size: 28px;" data-start="938" data-end="955"></strong></li>
+<li data-section-id="4mnipg" data-start="849" data-end="927"><span role="text"><strong data-start="684" data-end="706">Data Privacy:</strong></span></li>
+</ul>
+<ul data-start="956" data-end="1120">
+<li data-section-id="1gs6aug" data-start="956" data-end="1017">Does an actor need to consent to their likeness being used?</li>
+<li data-section-id="1g09zsv" data-start="1018" data-end="1058">What happens if the actor is deceased?</li>
+<li data-section-id="1xnsf3o" data-start="1059" data-end="1120">Can someone’s identity be reconstructed without permission?<strong style="background-color: #140f50; color: #ffffff; font-size: 28px;" data-start="1131" data-end="1162"></strong></li>
+</ul>
+<p>&nbsp;</p>
+<ul data-start="956" data-end="1120">
+<li><span role="text"><strong data-start="684" data-end="706">Data Quality/Information:</strong></span></li>
+</ul>
+<ul data-start="1163" data-end="1361">
+<li data-section-id="1dq0ku9" data-start="1163" data-end="1229">What level of realism is required to avoid the “<a class="inline_disabled" href="https://en.wikipedia.org/wiki/Uncanny_valley" target="_blank">uncanny valley</a>”?</li>
+<li data-section-id="n27ac5" data-start="1230" data-end="1313">How do we evaluate a <em>good</em> AI performance: technical realism or emotional impact?</li>
+<li data-section-id="kuqsy2" data-start="1314" data-end="1361">Can AI replicate subtle human acting choices?</li>
+<li data-section-id="kuqsy2" data-start="1314" data-end="1361"><strong style="background-color: #140f50; color: #ffffff; font-size: 28px;" data-start="1372" data-end="1390"></strong></li>
+<li data-section-id="kuqsy2" data-start="1314" data-end="1361"><span role="text"><strong data-start="684" data-end="706">Data Quantity</strong></span></li>
+</ul>
+<ul data-start="1391" data-end="1564">
+<li data-section-id="qy49fh" data-start="1391" data-end="1454">How much footage is needed to convincingly recreate an actor?</li>
+<li data-section-id="vuxu09" data-start="1455" data-end="1507">Do lesser-known actors have enough data available?</li>
+<li data-section-id="7ildx0" data-start="1508" data-end="1564">Can synthetic data (generated faces/voices) fill gaps?<strong style="background-color: #140f50; color: #ffffff; font-size: 28px;" data-start="1575" data-end="1589"></strong></li>
+<li data-section-id="7ildx0" data-start="1508" data-end="1564"></li>
+<li><span role="text"><strong data-start="684" data-end="706">Data Bias</strong></span></li>
+</ul>
+<ul data-start="1590" data-end="1777">
+<li data-section-id="1tdq3r1" data-start="1590" data-end="1657">Are famous actors more likely to be digitised than emerging ones?</li>
+<li data-section-id="1e88kw1" data-start="1658" data-end="1719">Does this reinforce existing power structures in Hollywood?</li>
+<li data-section-id="txpcrh" data-start="1720" data-end="1777">Are certain faces or voices easier for AI to replicate?</li>
+<li data-section-id="txpcrh" data-start="1720" data-end="1777">Are there enough performances of minority actors to reproduce them?</li>
+<li data-section-id="txpcrh" data-start="1720" data-end="1777"><strong style="background-color: #140f50; color: #ffffff; font-size: 28px;" data-start="1788" data-end="1816"></strong></li>
+<li><strong data-start="4494" data-end="4522">Computational Resources:</strong></li>
+</ul>
+<ul data-start="1817" data-end="1988">
+<li data-section-id="123iur7" data-start="1817" data-end="1873">How expensive is high-quality digital human rendering?</li>
+<li data-section-id="nadusm" data-start="1874" data-end="1934">Can this be done in real time, or only in post-production?</li>
+<li data-section-id="gxzn2u" data-start="1935" data-end="1988">What infrastructure is needed (render farms, GPUs)?</li>
+<li data-section-id="gxzn2u" data-start="1935" data-end="1988"><strong style="background-color: #140f50; color: #ffffff; font-size: 28px;" data-start="1999" data-end="2018"></strong></li>
+<li><strong data-start="4494" data-end="4522">Ethics and Legal:</strong></li>
+</ul>
+<ul data-start="2019" data-end="2329">
+<li data-section-id="aj04jn" data-start="2019" data-end="2090">What if an actor is made to “perform” something they never agreed to or their friends believe they wouldn't have done?</li>
+<li data-section-id="6cs6k4" data-start="2091" data-end="2143">Who owns a digital version of a person’s likeness?</li>
+<li data-section-id="1lsd5dc" data-start="2144" data-end="2210">What happens to employment for actors, extras, stunt performers?</li>
+<li data-section-id="l2ys7u" data-start="2211" data-end="2329">Which is worse:
+<ul data-start="2231" data-end="2329">
+<li data-section-id="1ik5jy0" data-start="2231" data-end="2267">Replacing actors entirely with AI?</li>
+<li data-section-id="1v19yrv" data-start="2270" data-end="2329">Or subtly altering their performances without disclosure?</li>
+</ul>
+</li>
+<li></li>
+</ul>
+</div>
+<div class="dp-content-block">
+<h3>Tasks: ePortfolio</h3>
+<h4>Task #1: Project Reflection</h4>
+<p><span style="background-color: #fbeeb8;">Upload your groups summary of the AI case study. This can include a plan, ideas, answers to questions etc.</span></p>
+</div>
+<div id="dpCustomCss" data-external-style="/cc-dev.css">&nbsp;</div>
+</div>
+</body>
+</html>
